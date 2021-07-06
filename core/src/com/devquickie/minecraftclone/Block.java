@@ -12,6 +12,8 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.BoxShapeBuilder;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.physics.bullet.collision.btBoxShape;
+import com.badlogic.gdx.physics.bullet.collision.btCollisionObject;
 import com.badlogic.gdx.utils.Disposable;
 
 public class Block implements Disposable {
@@ -20,6 +22,7 @@ public class Block implements Disposable {
 	private Model model;
 	private ModelInstance instance;
 	private Type type;
+	public static Block INSTANCE;
 
 	public Block(Texture texture, Type type) {
 		this.type = type;
@@ -30,8 +33,10 @@ public class Block implements Disposable {
 				| VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates, material);
 		BoxShapeBuilder.build(mesh_part_builder, 5, 5, 5);
 		model = modelBuilder.end();
+
 		
 		instance = new ModelInstance(model);
+		INSTANCE = this;
 	}
 	
 	public void setPosition(float x, float y, float z){
@@ -52,12 +57,26 @@ public class Block implements Disposable {
 	public ModelInstance getInstance() {
 		return instance;
 	}
+	public Block.Type gettype() {
+		return type;
+	}
+
+	/**
+	 * @return returns the Block itself.
+	 */
+	public static Block getINSTANCE() {
+		return INSTANCE;
+	}
 
 	public void dispose() {
 		model.dispose();
 	}
 	
 	public enum Type{
-		DirtBlock;
+		DirtBlock,
+		StoneBlock,
+		WoodBlock1,
+		WoodBlock2,
+		GrassBlock;
 	}
 }

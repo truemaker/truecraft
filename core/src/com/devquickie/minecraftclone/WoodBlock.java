@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class WoodBlock extends Block {
 	public WoodBlock() {
-		super(new Texture(Gdx.files.internal("texture/Wood.PNG")), Type.DirtBlock);
+		super(GameRegistry.getTextureByID(11), Type.WoodBlock1);
+
 	}
 }
