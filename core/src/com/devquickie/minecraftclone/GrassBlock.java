@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class GrassBlock extends Block {
 	public GrassBlock() {
-		super(new Texture(Gdx.files.internal("texture/Grass.PNG")), Type.DirtBlock);
+		super(GameRegistry.getTextureByID(0), Type.GrassBlock);
+
 	}
 }

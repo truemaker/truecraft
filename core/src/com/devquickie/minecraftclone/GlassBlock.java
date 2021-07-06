@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class GlassBlock extends Block {
 	public GlassBlock() {
-		super(new Texture(Gdx.files.internal("texture/Glass.PNG")), Type.DirtBlock);
+		super(GameRegistry.getTextureByID(3), Type.DirtBlock);
+
 	}
 }

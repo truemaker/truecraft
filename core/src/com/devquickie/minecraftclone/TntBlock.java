@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class TntBlock extends Block {
 	public TntBlock() {
-		super(new Texture(Gdx.files.internal("texture/Tnt.PNG")), Type.DirtBlock);
+		super(GameRegistry.getTextureByID(9), Type.DirtBlock);
+
 	}
 }

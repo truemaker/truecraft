@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class RedstoneBlock extends Block {
 	public RedstoneBlock() {
-		super(new Texture(Gdx.files.internal("texture/Redstone.PNG")), Type.DirtBlock);
+		super(GameRegistry.getTextureByID(6), Type.DirtBlock);
+
 	}
 }
